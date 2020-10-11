@@ -4,18 +4,15 @@ import javafx.scene.layout.Pane;
 
 
 public class Home {
-    //private static final String directory = "resources/";
-
     private final String homePage;
-    private final String reactionTimePage;
-
     private Scene scene;
 
     public Home() {
-        //homePage = directory + "home.fxml";
         homePage ="home.fxml";
-        //reactionTimePage = directory + "reactionTime.fxml";
-        reactionTimePage = "reactionTime.fxml";
+    }
+
+    public void initialize() {
+
     }
 
     public Scene getScene() {
@@ -26,12 +23,43 @@ public class Home {
         this.scene = scene;
     }
 
-    public void initialize() {
-
+    public void reactionTimeClicked(ActionEvent actionEvent) {
+        Pane newRoot = Loader.loadFxmlFile("reactionTime.fxml");
+        scene.setRoot(newRoot);
     }
 
-    public void reactionTimeClicked(ActionEvent actionEvent) {
-        Pane newRoot = Loader.loadFxmlFile(reactionTimePage);
+    public void aimTrainerClicked(ActionEvent actionEvent) {
+        Pane newRoot = Loader.loadFxmlFile("aimTrainer.fxml");
+        scene.setRoot(newRoot);
+    }
+
+    public void chimpTestClicked(ActionEvent actionEvent) {
+        Pane newRoot = Loader.loadFxmlFile("chimpTest.fxml");
+        scene.setRoot(newRoot);
+    }
+
+    public void visualMemoryClicked(ActionEvent actionEvent) {
+        Pane newRoot = Loader.loadFxmlFile("visualMemory.fxml");
+        scene.setRoot(newRoot);
+    }
+
+    public void hearingClicked(ActionEvent actionEvent) {
+        Pane newRoot = Loader.loadFxmlFile("hearing.fxml");
+        scene.setRoot(newRoot);
+    }
+
+    public void typingClicked(ActionEvent actionEvent) {
+        Pane newRoot = Loader.loadFxmlFile("typing.fxml");
+        scene.setRoot(newRoot);
+    }
+
+    public void numberMemoryClicked(ActionEvent actionEvent) {
+        Pane newRoot = Loader.loadFxmlFile("numberMemory.fxml");
+        scene.setRoot(newRoot);
+    }
+
+    public void verbalMemoryClicked(ActionEvent actionEvent) {
+        Pane newRoot = Loader.loadFxmlFile("verbalMemory.fxml");
         scene.setRoot(newRoot);
     }
 }

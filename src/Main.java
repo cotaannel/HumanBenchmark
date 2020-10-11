@@ -15,10 +15,9 @@ public class Main extends Application {
         primaryStage.setTitle("Human Benchmark");
 
         FXMLLoader loader =
-                new FXMLLoader(getClass().getResource("resources/home.fxml"));
+                new FXMLLoader(getClass().getResource("home.fxml"));
 
         GridPane root = loader.load();
-
         Scene scene = new Scene(root);
 
         Home home = loader.getController();
