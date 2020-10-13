@@ -13,7 +13,9 @@ public class Home {
     }
 
     public void initialize() {
+
         values = Main.getValues();
+        scene = values.getHome();
     }
 
     public Scene getScene() {
