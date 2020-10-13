@@ -8,8 +8,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private static Home home;
-    private static Values values = new Values();
-    //private Values values;
+    private static Scene scene;
     public static void main(String[] args) {
         launch(args);
     }
@@ -22,9 +21,7 @@ public class Main extends Application {
                 new FXMLLoader(getClass().getResource("home.fxml"));
 
         GridPane root = loader.load();
-        Scene scene = new Scene(root);
-
-        values.setHome(scene);
+        scene = new Scene(root);
         home = loader.getController();
         home.setScene(scene);
 
@@ -32,7 +29,7 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    public static Values getValues() {
-        return values;
+    public static Scene getScene() {
+        return scene;
     }
 }

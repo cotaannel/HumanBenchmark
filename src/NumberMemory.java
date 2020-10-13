@@ -3,12 +3,10 @@ import javafx.scene.layout.Pane;
 
 public class NumberMemory {
     private Scene scene;
-    private Values values;
 
     public void goBackHome() {
         Pane newRoot = Loader.loadFxmlFile("home.fxml");
-        values = Main.getValues();
-        scene = values.getHome();
+        scene = Main.getScene();
         scene.setRoot(newRoot);
     }
 }
