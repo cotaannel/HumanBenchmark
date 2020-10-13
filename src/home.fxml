@@ -1,16 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
-<GridPane xmlns="http://javafx.com/javafx"
-          xmlns:fx="http://javafx.com/fxml"
-          fx:controller="Home"
-          prefHeight="400.0" prefWidth="600.0">
+<GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Home">
 
-    <Button text="Reaction Time"
-            onAction="#reactionTimeClicked"/>
+    <Button onAction="#reactionTimeClicked" prefHeight="42.0" prefWidth="137.0" text="Reaction Time" />
+   <Button mnemonicParsing="false" onAction="#aimTrainerClicked" prefHeight="42.0" prefWidth="137.0" text="Aim Trainer" GridPane.columnIndex="1" />
+   <Button mnemonicParsing="false" onAction="#chimpTestClicked" prefHeight="42.0" prefWidth="137.0" text="Chimp Test" GridPane.columnIndex="2" />
+   <Button mnemonicParsing="false" onAction="#visualMemoryClicked" prefHeight="42.0" prefWidth="137.0" text="Visual Memory" GridPane.rowIndex="1" />
+   <Button mnemonicParsing="false" onAction="#hearingClicked" prefHeight="42.0" prefWidth="137.0" text="Hearing" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   <Button mnemonicParsing="false" onAction="#typingClicked" prefHeight="42.0" prefWidth="137.0" text="Typing" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+   <Button mnemonicParsing="false" onAction="#numberMemoryClicked" prefHeight="42.0" prefWidth="137.0" text="Number Memory" GridPane.rowIndex="2" />
+   <Button mnemonicParsing="false" onAction="#verbalMemoryClicked" prefHeight="42.0" prefWidth="137.0" text="Verbal Memory" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>
