@@ -51,6 +51,12 @@ public class ReactionTime {
         //reactionTime.setText(Long.toString(milliValue) + " ms");
     }
 
+    public void retryGame() {
+        Pane newRoot = Loader.loadFxmlFile("reactionTime.fxml");
+        scene = Main.getScene();
+        scene.setRoot(newRoot);
+    }
+
     public void goBackHome() {
         Pane newRoot = Loader.loadFxmlFile("home.fxml");
         scene = Main.getScene();

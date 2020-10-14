@@ -1,19 +1,10 @@
-import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
-
 public class Home {
-    private final String homePage;
     private Scene scene;
 
-    public Home() {
-        homePage ="home.fxml";
-    }
-
-    public void initialize() {
-        scene = Main.getScene();
-    }
+    public void initialize() { scene = Main.getScene(); }
 
     public Scene getScene() {
         return scene;
@@ -23,37 +14,37 @@ public class Home {
         this.scene = scene;
     }
 
-    public void reactionTimeClicked(ActionEvent actionEvent) {
+    public void reactionTimeClicked() {
         Pane newRoot = Loader.loadFxmlFile("reactionTime.fxml");
         scene.setRoot(newRoot);
     }
 
-    public void aimTrainerClicked(ActionEvent actionEvent) {
+    public void aimTrainerClicked() {
         Pane newRoot = Loader.loadFxmlFile("aimTrainer.fxml");
         scene.setRoot(newRoot);
     }
 
-    public void chimpTestClicked(ActionEvent actionEvent) {
+    public void chimpTestClicked() {
         Pane newRoot = Loader.loadFxmlFile("chimpTest.fxml");
         scene.setRoot(newRoot);
     }
 
-    public void visualMemoryClicked(ActionEvent actionEvent) {
+    public void visualMemoryClicked() {
         Pane newRoot = Loader.loadFxmlFile("visualMemory.fxml");
         scene.setRoot(newRoot);
     }
 
-    public void typingClicked(ActionEvent actionEvent) {
+    public void typingClicked() {
         Pane newRoot = Loader.loadFxmlFile("typing.fxml");
         scene.setRoot(newRoot);
     }
 
-    public void numberMemoryClicked(ActionEvent actionEvent) {
+    public void numberMemoryClicked() {
         Pane newRoot = Loader.loadFxmlFile("numberMemory.fxml");
         scene.setRoot(newRoot);
     }
 
-    public void verbalMemoryClicked(ActionEvent actionEvent) {
+    public void verbalMemoryClicked() {
         Pane newRoot = Loader.loadFxmlFile("verbalMemory.fxml");
         scene.setRoot(newRoot);
     }

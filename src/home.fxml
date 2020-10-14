@@ -7,22 +7,22 @@
 
 <GridPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Home">
 
-    <Button onAction="#reactionTimeClicked" prefHeight="42.0" prefWidth="137.0" text="Reaction Time" />
-   <Button mnemonicParsing="false" onAction="#aimTrainerClicked" prefHeight="42.0" prefWidth="137.0" text="Aim Trainer" GridPane.columnIndex="1" />
-   <Button mnemonicParsing="false" onAction="#chimpTestClicked" prefHeight="42.0" prefWidth="137.0" text="Chimp Test" GridPane.columnIndex="2" />
-   <Button mnemonicParsing="false" onAction="#visualMemoryClicked" prefHeight="42.0" prefWidth="137.0" text="Visual Memory" GridPane.rowIndex="1" />
-   <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="137.0" text="Hearing" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-   <Button mnemonicParsing="false" onAction="#typingClicked" prefHeight="42.0" prefWidth="137.0" text="Typing" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-   <Button mnemonicParsing="false" onAction="#numberMemoryClicked" prefHeight="42.0" prefWidth="137.0" text="Number Memory" GridPane.rowIndex="2" />
-   <Button mnemonicParsing="false" onAction="#verbalMemoryClicked" prefHeight="42.0" prefWidth="137.0" text="Verbal Memory" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+    <Button onAction="#reactionTimeClicked" prefHeight="137.0" prefWidth="186.0" text="Reaction Time" />
+   <Button mnemonicParsing="false" onAction="#aimTrainerClicked" prefHeight="140.0" prefWidth="244.0" text="Aim Trainer" GridPane.columnIndex="1" />
+   <Button mnemonicParsing="false" onAction="#chimpTestClicked" prefHeight="144.0" prefWidth="185.0" text="Chimp Test" GridPane.columnIndex="2" />
+   <Button mnemonicParsing="false" onAction="#visualMemoryClicked" prefHeight="135.0" prefWidth="192.0" text="Visual Memory" GridPane.rowIndex="1" />
+   <Button mnemonicParsing="false" prefHeight="133.0" prefWidth="238.0" text="Hearing" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   <Button mnemonicParsing="false" onAction="#typingClicked" prefHeight="135.0" prefWidth="185.0" text="Typing" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+   <Button mnemonicParsing="false" onAction="#numberMemoryClicked" prefHeight="139.0" prefWidth="186.0" text="Number Memory" GridPane.rowIndex="2" />
+   <Button mnemonicParsing="false" onAction="#verbalMemoryClicked" prefHeight="153.0" prefWidth="193.0" text="Verbal Memory" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
+      <ColumnConstraints maxWidth="212.0" minWidth="142.0" prefWidth="186.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="274.0" minWidth="142.0" prefWidth="234.0" />
+      <ColumnConstraints hgrow="ALWAYS" maxWidth="199.0" minWidth="0.0" prefWidth="180.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
+      <RowConstraints maxHeight="213.0" minHeight="46.0" prefHeight="135.0" />
+      <RowConstraints maxHeight="166.0" minHeight="0.0" prefHeight="131.0" vgrow="ALWAYS" />
+      <RowConstraints maxHeight="134.0" minHeight="0.0" prefHeight="134.0" vgrow="ALWAYS" />
    </rowConstraints>
 </GridPane>
