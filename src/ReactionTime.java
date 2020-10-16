@@ -20,6 +20,11 @@ public class ReactionTime {
 
     private LongProperty reactionTimeValue;
 
+    private  long rand;
+
+    @FXML
+    private  Label gameUpdate;
+
     public Scene getScene() {
         return scene;
     }
@@ -37,7 +42,7 @@ public class ReactionTime {
     }
 
     public void startTimer(ActionEvent actionEvent) throws InterruptedException {
-        long rand = ThreadLocalRandom.current().nextLong(1000, 5000);
+        rand = ThreadLocalRandom.current().nextLong(1000, 5000);
         TimeUnit.MILLISECONDS.sleep(rand);
         root.setStyle("-fx-background-color: green");
         startTime = System.nanoTime();
@@ -47,7 +52,13 @@ public class ReactionTime {
         long finishTime = System.nanoTime();
         long reactionTimeNano = finishTime - startTime;
         long milliValue = TimeUnit.NANOSECONDS.toMillis(reactionTimeNano);
-        reactionTimeValue.setValue(milliValue);
+        if(milliValue >= rand) {
+            reactionTimeValue.setValue(milliValue);
+        } else {
+            gameUpdate.setText("Clicked too soon! Try again.");
+            //retryGame();
+        }
+
         //reactionTime.setText(Long.toString(milliValue) + " ms");
     }
 

@@ -19,4 +19,5 @@
          <Button mnemonicParsing="false" onAction="#retryGame" text="Retry Game" />
       </children>
    </HBox>
+   <Label fx:id="gameUpdate" layoutX="159.0" layoutY="226.0" prefHeight="40.0" prefWidth="245.0" />
 </Pane>

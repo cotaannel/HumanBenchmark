@@ -11,10 +11,11 @@ import java.util.Random;
 public class NumberMemory {
     private Scene scene;
     private int number;
-    private int level = 1;
+    private int level = 0;
     private int numberGuess;
     private int numberOfSeconds = 2;
     private String randomNums = "9";
+    private String minNum = "0";
     @FXML
     private TextField numberInput;
     @FXML
@@ -30,7 +31,8 @@ public class NumberMemory {
         numberInput.setVisible(false);
         Random rand = new Random();
         int n = Integer.parseInt(randomNums);
-        number = rand.nextInt(n);
+        int min = Integer.parseInt(minNum);
+        number = rand.nextInt(n + 1 - min) + (min + 1);
         numberLabel.setText(Integer.toString(number));
         PauseTransition pause1 = new PauseTransition(Duration.seconds(numberOfSeconds));
         PauseTransition pause2 = new PauseTransition(Duration.seconds(numberOfSeconds));
@@ -48,6 +50,7 @@ public class NumberMemory {
     public void compareNumbers() {
         if(numberGuess == number) {
             randomNums += "9";
+            minNum += "9";
             numberInput.clear();
             numberOfSeconds++;
             level++;

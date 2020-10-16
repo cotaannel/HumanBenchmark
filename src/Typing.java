@@ -6,7 +6,7 @@ public class Typing {
 
 
     public void retryGame() {
-        Pane newRoot = Loader.loadFxmlFile("numberMemory.fxml");
+        Pane newRoot = Loader.loadFxmlFile("typing.fxml");
         scene = Main.getScene();
         scene.setRoot(newRoot);
     }
