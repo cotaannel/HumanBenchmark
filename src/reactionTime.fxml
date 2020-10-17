@@ -5,11 +5,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <Pane fx:id="root" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: red" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ReactionTime">
 
-    <VBox layoutX="150" layoutY="100">
-        <Button fx:id="start" onAction="#startTimer" text="Click To Begin" />
+    <VBox alignment="CENTER" layoutX="-1.0" layoutY="100" prefHeight="71.0" prefWidth="607.0">
+        <Button fx:id="start" onAction="#startTimer" text="Click Me To Start" />
         <Button fx:id="finish" onAction="#finishTimer" text="Click Me When Screen Turns Green" />
         <Label fx:id="reactionTime" />
     </VBox>
@@ -19,5 +20,21 @@
          <Button mnemonicParsing="false" onAction="#retryGame" text="Retry Game" />
       </children>
    </HBox>
-   <Label fx:id="gameUpdate" layoutX="159.0" layoutY="226.0" prefHeight="40.0" prefWidth="245.0" />
+   <Label fx:id="gameUpdate" alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="200.0" prefHeight="155.0" prefWidth="587.0" textAlignment="CENTER">
+      <font>
+         <Font size="36.0" />
+      </font></Label>
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="14.0" prefHeight="27.0" prefWidth="355.0" text="If you click too early, the game will be reset.">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label alignment="TOP_LEFT" layoutX="224.0" layoutY="156.0" prefHeight="53.0" prefWidth="40.0" text="Time:">
+      <font>
+         <Font size="14.0" />
+      </font></Label>
+   <Label alignment="TOP_LEFT" layoutX="360.0" layoutY="156.0" prefHeight="53.0" prefWidth="59.0" text="ms">
+      <font>
+         <Font size="14.0" />
+      </font></Label>
 </Pane>

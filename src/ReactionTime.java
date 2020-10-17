@@ -1,3 +1,4 @@
+import javafx.animation.PauseTransition;
 import javafx.beans.property.LongProperty;
 import javafx.beans.property.SimpleLongProperty;
 import javafx.event.ActionEvent;
@@ -5,25 +6,21 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class ReactionTime {
+    private Scene scene;
+    private long startTime;
+    private LongProperty reactionTimeValue;
+    private  long rand;
+    @FXML
+    private  Label gameUpdate;
     @FXML
     private Pane root;
     @FXML
     private Label reactionTime;
-
-    private Scene scene;
-
-    private long startTime;
-
-    private LongProperty reactionTimeValue;
-
-    private  long rand;
-
-    @FXML
-    private  Label gameUpdate;
 
     public Scene getScene() {
         return scene;
@@ -33,13 +30,9 @@ public class ReactionTime {
         this.scene = scene;
     }
 
-    public ReactionTime() {
-        reactionTimeValue = new SimpleLongProperty(0);
-    }
+    public ReactionTime() { reactionTimeValue = new SimpleLongProperty(0); }
 
-    public void initialize() {
-        reactionTime.textProperty().bind(reactionTimeValue.asString());
-    }
+    public void initialize() { reactionTime.textProperty().bind(reactionTimeValue.asString()); }
 
     public void startTimer(ActionEvent actionEvent) throws InterruptedException {
         rand = ThreadLocalRandom.current().nextLong(1000, 5000);
@@ -52,17 +45,15 @@ public class ReactionTime {
         long finishTime = System.nanoTime();
         long reactionTimeNano = finishTime - startTime;
         long milliValue = TimeUnit.NANOSECONDS.toMillis(reactionTimeNano);
-        long finTime = TimeUnit.NANOSECONDS.toMillis(rand);
-//        if(reactionTimeNano >= rand) {
-//            reactionTimeValue.setValue(milliValue);
-//        } else {
-//            gameUpdate.setText("Clicked too soon! Try again.");
-//            //retryGame();
-//        }
-        reactionTimeValue.setValue(milliValue);
-        System.out.println(milliValue);
-        System.out.println(finTime);
-        //reactionTime.setText(Long.toString(milliValue) + " ms");
+        long startMilliValue = TimeUnit.NANOSECONDS.toMillis(startTime);
+        if(reactionTimeNano >= startMilliValue) {
+            reactionTimeValue.setValue(milliValue);
+        } else {
+            gameUpdate.setText("You clicked too early!\n Game will be reset in 5 seconds.");
+            PauseTransition pause = new PauseTransition(Duration.seconds(5));
+            pause.setOnFinished(e -> retryGame());
+            pause.play();
+        }
     }
 
     public void retryGame() {
