@@ -21,6 +21,10 @@
          </font>
       </Label>
       <Button layoutX="272.0" layoutY="325.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
-      <Pane fx:id="pane" layoutX="37.0" layoutY="64.0" prefHeight="222.0" prefWidth="525.0" />
+      <Pane fx:id="pane" layoutX="37.0" layoutY="74.0" prefHeight="197.0" prefWidth="525.0" />
+      <Label fx:id="results" alignment="CENTER" layoutX="172.0" layoutY="38.0" prefHeight="86.0" prefWidth="246.0" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
    </children>
 </AnchorPane>

@@ -12,11 +12,15 @@ import javafx.scene.layout.Pane;
 
 import java.util.Collection;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class AimTrainer {
+    private long startTime;
     private Scene scene;
     @FXML
     private Label remainingLabel;
+    @FXML
+    private  Label results;
     @FXML
     private Pane pane;
     private ImageView image;
@@ -24,6 +28,7 @@ public class AimTrainer {
 
     @FXML
     private void startGame() {
+        results.setDisable(true);
         createAimImage();
     }
 
@@ -39,20 +44,29 @@ public class AimTrainer {
         image.setLayoutX(ranX);
         image.setLayoutY(ranY);
         pane.getChildren().addAll(image);
+        startTime = System.nanoTime();
 
         image.setOnMouseClicked(new EventHandler() {
             @Override
             public void handle(Event event) {
                 System.out.println("image clicked");
                 remaining--;
-                createAimImage();
+                if(remaining == 0) {
+                    remainingLabel.setText("Remaining: " + remaining);
+                    pane.getChildren().clear();
+                    long finishTime = System.nanoTime();
+                    long reactionTime = finishTime - startTime;
+                    long time = TimeUnit.NANOSECONDS.toMillis(finishTime);
+                    long totalTime = (time / 30);
+                    results.setDisable(false);
+                    results.setText("Average time per target:\n" + totalTime + " ms");
+
+                    System.out.println("done");
+                } else {
+                    createAimImage();
+                }
             }
         });
-
-        if(remaining == 0) {
-            pane.getChildren().clear();
-            System.out.println("done");
-        }
     }
 
     public void retryGame() {
