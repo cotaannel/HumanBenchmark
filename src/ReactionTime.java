@@ -52,13 +52,16 @@ public class ReactionTime {
         long finishTime = System.nanoTime();
         long reactionTimeNano = finishTime - startTime;
         long milliValue = TimeUnit.NANOSECONDS.toMillis(reactionTimeNano);
-        if(milliValue >= rand) {
-            reactionTimeValue.setValue(milliValue);
-        } else {
-            gameUpdate.setText("Clicked too soon! Try again.");
-            //retryGame();
-        }
-
+        long finTime = TimeUnit.NANOSECONDS.toMillis(rand);
+//        if(reactionTimeNano >= rand) {
+//            reactionTimeValue.setValue(milliValue);
+//        } else {
+//            gameUpdate.setText("Clicked too soon! Try again.");
+//            //retryGame();
+//        }
+        reactionTimeValue.setValue(milliValue);
+        System.out.println(milliValue);
+        System.out.println(finTime);
         //reactionTime.setText(Long.toString(milliValue) + " ms");
     }
 

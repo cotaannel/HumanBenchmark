@@ -98,7 +98,6 @@ public class VerbalMemory {
                     }
                 }
                 wordLabel.setText(currentWord);
-                System.out.println(n);
             }
         } else {
             seenButton.setDisable(true);

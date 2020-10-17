@@ -9,8 +9,6 @@ public class Loader {
 
         try {
             root = loader.load();
-
-            //if(fxmlFile.equals("calculator.fxml"))
         }
         catch (IOException e) {
             e.printStackTrace();

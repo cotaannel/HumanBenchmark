@@ -11,7 +11,7 @@
    <Button mnemonicParsing="false" onAction="#aimTrainerClicked" prefHeight="140.0" prefWidth="244.0" text="Aim Trainer" GridPane.columnIndex="1" />
    <Button mnemonicParsing="false" onAction="#chimpTestClicked" prefHeight="144.0" prefWidth="185.0" text="Chimp Test" GridPane.columnIndex="2" />
    <Button mnemonicParsing="false" onAction="#visualMemoryClicked" prefHeight="135.0" prefWidth="192.0" text="Visual Memory" GridPane.rowIndex="1" />
-   <Button mnemonicParsing="false" prefHeight="133.0" prefWidth="238.0" text="Hearing" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   <Button mnemonicParsing="false" prefHeight="133.0" prefWidth="238.0" text="my game" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    <Button mnemonicParsing="false" onAction="#typingClicked" prefHeight="135.0" prefWidth="185.0" text="Typing" GridPane.columnIndex="2" GridPane.rowIndex="1" />
    <Button mnemonicParsing="false" onAction="#numberMemoryClicked" prefHeight="139.0" prefWidth="186.0" text="Number Memory" GridPane.rowIndex="2" />
    <Button mnemonicParsing="false" onAction="#verbalMemoryClicked" prefHeight="153.0" prefWidth="193.0" text="Verbal Memory" GridPane.columnIndex="2" GridPane.rowIndex="2" />
