@@ -28,7 +28,7 @@ public class AimTrainer {
     private void startGame() {
         startTime = System.nanoTime();
         startButton.setDisable(true);
-        results.setDisable(true);
+        results.setText("");
         createAimImage();
     }
 
@@ -57,7 +57,6 @@ public class AimTrainer {
                     long reactionTimeNano = finishTime - startTime;
                     long milliValue = TimeUnit.NANOSECONDS.toMillis(reactionTimeNano);
                     long totalTime = (milliValue / 30);
-                    results.setDisable(false);
                     results.setText("Average time per target:\n" + totalTime + " ms");
                 } else {
                     createAimImage();

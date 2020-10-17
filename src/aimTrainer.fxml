@@ -22,7 +22,7 @@
       </Label>
       <Button fx:id="startButton" layoutX="272.0" layoutY="325.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
       <Pane fx:id="pane" layoutX="37.0" layoutY="74.0" prefHeight="197.0" prefWidth="515.0" />
-      <Label fx:id="results" alignment="CENTER" layoutX="172.0" layoutY="38.0" prefHeight="86.0" prefWidth="246.0" textAlignment="CENTER">
+      <Label fx:id="results" alignment="CENTER" layoutX="96.0" layoutY="39.0" prefHeight="86.0" prefWidth="377.0" text="Hit 30 targets as quickly as you can.&#10;&#10;Click Start to begin." textAlignment="CENTER">
          <font>
             <Font size="24.0" />
          </font></Label>

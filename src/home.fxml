@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
@@ -15,6 +16,14 @@
    <Button mnemonicParsing="false" onAction="#typingClicked" prefHeight="135.0" prefWidth="185.0" text="Typing" GridPane.columnIndex="2" GridPane.rowIndex="1" />
    <Button mnemonicParsing="false" onAction="#numberMemoryClicked" prefHeight="139.0" prefWidth="186.0" text="Number Memory" GridPane.rowIndex="2" />
    <Button mnemonicParsing="false" onAction="#verbalMemoryClicked" prefHeight="153.0" prefWidth="193.0" text="Verbal Memory" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+   <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="How quickly can you hit all the&#10;targets?&#10;" textAlignment="CENTER" GridPane.columnIndex="1" />
+   <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="95.0" prefWidth="186.0" text="Test your visual reflexes.&#10;" textAlignment="CENTER" />
+   <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="Remember an increasingly&#10;large board of squares." textAlignment="CENTER" GridPane.rowIndex="1" />
+   <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="Remember the longest number&#10;you can.&#10;" textAlignment="CENTER" GridPane.rowIndex="2" />
+   <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="n/a&#10;" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="Are you smarter than a&#10;chimpanzee?" textAlignment="CENTER" GridPane.columnIndex="2" />
+   <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="How many words per minute&#10;can you type?&#10;" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+   <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="Keep as many words in short&#10;term memory as possible." textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
    <columnConstraints>
       <ColumnConstraints maxWidth="212.0" minWidth="142.0" prefWidth="186.0" />
       <ColumnConstraints hgrow="ALWAYS" maxWidth="274.0" minWidth="142.0" prefWidth="234.0" />
