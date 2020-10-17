@@ -1,16 +1,12 @@
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-
-import java.util.Collection;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -23,11 +19,15 @@ public class AimTrainer {
     private  Label results;
     @FXML
     private Pane pane;
+    @FXML
+    private Button startButton;
     private ImageView image;
     private int remaining = 30;
 
     @FXML
     private void startGame() {
+        startTime = System.nanoTime();
+        startButton.setDisable(true);
         results.setDisable(true);
         createAimImage();
     }
@@ -44,7 +44,6 @@ public class AimTrainer {
         image.setLayoutX(ranX);
         image.setLayoutY(ranY);
         pane.getChildren().addAll(image);
-        startTime = System.nanoTime();
 
         image.setOnMouseClicked(new EventHandler() {
             @Override
@@ -55,13 +54,11 @@ public class AimTrainer {
                     remainingLabel.setText("Remaining: " + remaining);
                     pane.getChildren().clear();
                     long finishTime = System.nanoTime();
-                    long reactionTime = finishTime - startTime;
-                    long time = TimeUnit.NANOSECONDS.toMillis(finishTime);
-                    long totalTime = (time / 30);
+                    long reactionTimeNano = finishTime - startTime;
+                    long milliValue = TimeUnit.NANOSECONDS.toMillis(reactionTimeNano);
+                    long totalTime = (milliValue / 30);
                     results.setDisable(false);
                     results.setText("Average time per target:\n" + totalTime + " ms");
-
-                    System.out.println("done");
                 } else {
                     createAimImage();
                 }
