@@ -2,28 +2,38 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.concurrent.TimeUnit;
 
 public class ChimpTest {
     private Scene scene;
     @FXML
     private Pane pane;
+    @FXML
+    private Label updateLabel;
+    @FXML
+    private Button continueButton;
+    @FXML
+    private Button startButton;
     private int strikes = 0;
     private int numberOfSquares = 4;
     private int num = 0;
     private ArrayList<StackPane> list;
+    private ArrayList<Rectangle> recList;
 
     public void startGame() {
-        //pane.getChildren().clear();
+        startButton.setDisable(true);
+        continueButton.setDisable(true);
+        updateLabel.setText("");
+        updateLabel.setDisable(true);
         list = new ArrayList<>();
+        num = 0;
         for(int i = 1; i <= numberOfSquares; i++) {
             createSquare(i);
         }
@@ -49,18 +59,51 @@ public class ChimpTest {
             @Override
             public void handle(Event event) {
                 if(stackPane == list.get(num)) {
+                    stackPane.getChildren().clear();
                     if(numberOfSquares != 4) {
-
+                        if(num == 0) {
+                            pane.getChildren().clear();
+                            StackPane sp;
+                            for(int i = 1; i <= numberOfSquares-1; i++) {
+                                sp = list.get(i);
+                                Rectangle rect = new Rectangle(1,1,40,40);
+                                rec.setFill(Color.BLACK);
+                                sp.getChildren().addAll(rect);
+                                pane.getChildren().add(sp);
+                            }
+                        }
+                    }
+                    num++;
+                    if(num == numberOfSquares) {
+                        numberOfSquares++;
+                        updateEndOfRound();
                     }
                     System.out.println("1 clicked");
-                    num++;
-                    stackPane.getChildren().clear();
 
                 } else {
-                    System.out.println("not 1");
+                    strikes++;
+                    if(strikes == 3) {
+                        updateLabel.setDisable(false);
+                        pane.getChildren().clear();
+                        updateLabel.setText("Game Over.\nScore:\n" + numberOfSquares);
+                    } else {
+                        updateEndOfRound();
+                    }
                 }
             }
         });
+    }
+
+    public void updateEndOfRound() {
+        continueButton.setDisable(false);
+        updateLabel.setDisable(false);
+        pane.getChildren().clear();
+        updateLabel.setText("Numbers:\n" + numberOfSquares + "\nStrikes:\n" + strikes +
+                " of 3\n Click 'Continue' to keep going");
+    }
+
+    public void continueButtonClicked() {
+        startGame();
     }
 
     public void retryGame() {

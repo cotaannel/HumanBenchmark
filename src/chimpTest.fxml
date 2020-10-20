@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChimpTest">
    <children>
@@ -13,7 +15,17 @@
             <Button mnemonicParsing="false" onAction="#retryGame" text="Retry Game" />
          </children>
       </HBox>
-      <Button layoutX="284.0" layoutY="327.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
-      <Pane fx:id="pane" layoutX="16.0" layoutY="21.0" prefHeight="289.0" prefWidth="564.0" />
+      <Pane fx:id="pane" layoutX="36.0" layoutY="37.0" prefHeight="237.0" prefWidth="528.0" />
+      <Label fx:id="updateLabel" alignment="CENTER" layoutX="5.0" layoutY="4.0" prefHeight="237.0" prefWidth="590.0" textAlignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="7.0" layoutY="312.0" prefHeight="46.0" prefWidth="590.0" spacing="10.0">
+         <children>
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startGame" text="Start" />
+            <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#continueButtonClicked" prefHeight="27.0" prefWidth="75.0" text="Continue" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>
