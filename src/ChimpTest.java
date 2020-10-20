@@ -25,7 +25,6 @@ public class ChimpTest {
     private int numberOfSquares = 4;
     private int num = 0;
     private ArrayList<StackPane> list;
-    private ArrayList<Rectangle> recList;
 
     public void startGame() {
         startButton.setDisable(true);
@@ -52,15 +51,20 @@ public class ChimpTest {
         stackPane.getChildren().addAll(rec, label);
         stackPane.setLayoutX(ranX);
         stackPane.setLayoutY(ranY);
+        //adds stackpane to list to compare later
         list.add(stackPane);
         pane.getChildren().add(stackPane);
 
         stackPane.setOnMouseClicked(new EventHandler() {
             @Override
             public void handle(Event event) {
+                //if stackpane clicks = first on list (which is # 1)
                 if(stackPane == list.get(num)) {
                     stackPane.getChildren().clear();
+                    //only makes the squares be filled(no number) if
+                    //round is passed # of 4 squares round
                     if(numberOfSquares != 4) {
+                        //covers up number after first # 1 is clicked
                         if(num == 0) {
                             pane.getChildren().clear();
                             StackPane sp;
@@ -74,12 +78,11 @@ public class ChimpTest {
                         }
                     }
                     num++;
+                    //once all squares clicked, new round
                     if(num == numberOfSquares) {
                         numberOfSquares++;
                         updateEndOfRound();
                     }
-                    System.out.println("1 clicked");
-
                 } else {
                     strikes++;
                     if(strikes == 3) {
