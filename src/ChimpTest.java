@@ -85,24 +85,22 @@ public class ChimpTest {
                     }
                 } else {
                     strikes++;
-                    if(strikes == 3) {
-                        updateLabel.setDisable(false);
-                        pane.getChildren().clear();
-                        updateLabel.setText("Game Over.\nScore:\n" + numberOfSquares);
-                    } else {
-                        updateEndOfRound();
-                    }
+                    updateEndOfRound();
                 }
             }
         });
     }
 
     public void updateEndOfRound() {
-        continueButton.setDisable(false);
         updateLabel.setDisable(false);
         pane.getChildren().clear();
-        updateLabel.setText("Numbers:\n" + numberOfSquares + "\nStrikes:\n" + strikes +
-                " of 3\n Click 'Continue' to keep going");
+        if(strikes == 3) {
+            updateLabel.setText("Game Over.\nScore:\n" + numberOfSquares);
+        } else {
+            continueButton.setDisable(false);
+            updateLabel.setText("Numbers:\n" + numberOfSquares + "\nStrikes:\n" + strikes +
+                    " of 3\n Click 'Continue' to keep going");
+        }
     }
 
     public void continueButtonClicked() {
