@@ -48,7 +48,6 @@ public class AimTrainer {
         image.setOnMouseClicked(new EventHandler() {
             @Override
             public void handle(Event event) {
-                System.out.println("image clicked");
                 remaining--;
                 if(remaining == 0) {
                     remainingLabel.setText("Remaining: " + remaining);

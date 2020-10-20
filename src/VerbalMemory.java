@@ -74,6 +74,7 @@ public class VerbalMemory {
             //it starts showing words from there to avoid repeats
             if(seenWords.isEmpty() || seenWords.size() == 1) {
                 currentWord = bank.get(0);
+                lastWord = currentWord;
                 wordLabel.setText(currentWord);
             } else {
                 Random rand = new Random();
@@ -81,13 +82,14 @@ public class VerbalMemory {
                 int n = rand.nextInt(3) + 1;
                 String nextWord;
                 if(n == 1) {
-                    //prevents repeats
+                    //prevents repeats right after one another
                     nextWord = seenWords.get(0);
                     if(lastWord == nextWord) {
                         currentWord = seenWords.get(1);
                     } else {
                         currentWord = nextWord;
                     }
+                    lastWord = currentWord;
                 } else {
                     //prevents repeats
                     nextWord = bank.get(0);
@@ -96,6 +98,7 @@ public class VerbalMemory {
                     } else {
                         currentWord = nextWord;
                     }
+                    lastWord = currentWord;
                 }
                 wordLabel.setText(currentWord);
             }
