@@ -48,4 +48,9 @@ public class Home {
         Pane newRoot = Loader.loadFxmlFile("verbalMemory.fxml");
         scene.setRoot(newRoot);
     }
+
+    public void matchPairsClicked() {
+        Pane newRoot = Loader.loadFxmlFile("matchPairs.fxml");
+        scene.setRoot(newRoot);
+    }
 }
