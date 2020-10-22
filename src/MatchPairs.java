@@ -101,9 +101,9 @@ public class MatchPairs {
         if(gameOver == 12) {
             long finishTime = System.nanoTime();
             long reactionTimeNano = finishTime - startTime;
-            long milliValue = TimeUnit.NANOSECONDS.toMillis(reactionTimeNano);
+            long secValue = TimeUnit.NANOSECONDS.toSeconds(reactionTimeNano);
             gameOverLabel.setDisable(false);
-            gameOverLabel.setText("Game Over\n You took this long to find all the pairs:\n"+milliValue+" ms");
+            gameOverLabel.setText("Game Over\n Time taken to find all the pairs:\n"+secValue+" seconds");
         }
     }
 
