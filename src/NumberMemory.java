@@ -72,6 +72,7 @@ public class NumberMemory {
         scene.setRoot(newRoot);
     }
 
+
     public void goBackHome() {
         Pane newRoot = Loader.loadFxmlFile("home.fxml");
         scene = Main.getScene();
