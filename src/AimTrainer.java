@@ -64,8 +64,6 @@ public class AimTrainer {
         });
     }
 
-
-
     public void retryGame() {
         Pane newRoot = Loader.loadFxmlFile("aimTrainer.fxml");
         scene = Main.getScene();

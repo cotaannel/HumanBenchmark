@@ -18,8 +18,6 @@ public class MatchPairs {
     @FXML
     private Label gameOverLabel;
     private GridPane pane;
-    //stores images
-    private ArrayList<Image> images = new ArrayList<>();
     //stores images and its copy
     private ArrayList<Image> imagesCopy = new ArrayList<>();
     //stores buttons with the images
@@ -44,7 +42,6 @@ public class MatchPairs {
         for(int i = 1; i <= 12; i++) {
             Image image =  new Image("Resources/images/"+i+".png",
                     70,70,false,true);
-            images.add(image);
             //adds image and image copy to arraylist
             imagesCopy.add(image);
             imagesCopy.add(image);
