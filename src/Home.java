@@ -55,7 +55,7 @@ public class Home {
     }
 
     public void scoresClicked() {
-        Pane newRoot = Loader.loadFxmlFile(".fxml");
+        Pane newRoot = Loader.loadFxmlFile("scores.fxml");
         scene.setRoot(newRoot);
     }
 }
