@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VisualMemory">
    <children>
@@ -12,15 +13,16 @@
          <children>
             <Button mnemonicParsing="false" onAction="#goBackHome" text="Back to Home Screen" />
             <Button mnemonicParsing="false" onAction="#retryGame" text="Retry Game" />
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startGame" text="Start" />
          </children>
       </HBox>
-      <Button layoutX="269.0" layoutY="324.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
-      <Pane fx:id="pane" layoutX="12.0" layoutY="44.0" prefHeight="270.0" prefWidth="575.0" />
-      <HBox alignment="CENTER" prefHeight="37.0" prefWidth="606.0">
+      <Pane fx:id="pane" layoutX="14.0" layoutY="8.0" prefHeight="270.0" prefWidth="391.0" />
+      <VBox alignment="TOP_CENTER" layoutX="481.0" prefHeight="200.0" prefWidth="119.0">
          <children>
-            <Label fx:id="levelLabel" prefHeight="17.0" prefWidth="76.0" text="Level:" />
-            <Label fx:id="livesLabel" prefHeight="17.0" prefWidth="70.0" text="Lives:" />
+            <Label fx:id="levelLabel" alignment="CENTER" prefHeight="17.0" prefWidth="103.0" text="Level:" />
+            <Label fx:id="livesLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" text="Lives:" textAlignment="CENTER" />
          </children>
-      </HBox>
+      </VBox>
+      <Label fx:id="roundUpdate" alignment="CENTER" layoutX="431.0" layoutY="130.0" prefHeight="228.0" prefWidth="168.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>

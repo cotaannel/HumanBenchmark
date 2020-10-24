@@ -74,7 +74,9 @@ public class MatchPairs {
      */
     public void addButtons(){
         pane.getChildren().clear();
-        int i = 0, col = 0, row = 0;
+        int i = 0;
+        int col = 0;
+        int row = 0;
         //adds the buttons to gridpane
         while(i < buttons.size()) {
             pane.add(buttons.get(i), col, row);
