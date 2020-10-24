@@ -15,7 +15,7 @@
             <Button mnemonicParsing="false" onAction="#retryGame" text="Retry Game" />
          </children>
       </HBox>
-      <Label fx:id="remainingLabel" alignment="CENTER" layoutX="96.0" layoutY="4.0" prefHeight="27.0" prefWidth="398.0">
+      <Label fx:id="remainingLabel" alignment="CENTER" layoutX="143.0" layoutY="1.0" prefHeight="27.0" prefWidth="284.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -26,5 +26,6 @@
          <font>
             <Font size="24.0" />
          </font></Label>
+      <Label fx:id="highScoreLabel" layoutX="427.0" layoutY="-2.0" prefHeight="33.0" prefWidth="143.0" />
    </children>
 </AnchorPane>

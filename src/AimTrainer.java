@@ -11,10 +11,13 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class AimTrainer {
+    private Scores scores;
     private long startTime;
     private Scene scene;
     @FXML
     private Label remainingLabel;
+    @FXML
+    private Label highScoreLabel;
     @FXML
     private  Label results;
     @FXML
@@ -26,9 +29,14 @@ public class AimTrainer {
 
     @FXML
     private void startGame() {
+        scores = Main.getScores();
+        long highScore = scores.getAimTrainerHighScore();
+        if(highScore != 0) { highScoreLabel.setText("High Score: " + highScore); }
+        //highScoreLabel.setText("High Score: " + highScore);
         startTime = System.nanoTime();
         startButton.setDisable(true);
         results.setText("");
+        results.setDisable(true);
         createAimImage();
     }
 
@@ -56,6 +64,8 @@ public class AimTrainer {
                     long reactionTimeNano = finishTime - startTime;
                     long milliValue = TimeUnit.NANOSECONDS.toMillis(reactionTimeNano);
                     long totalTime = (milliValue / 30);
+                    scores.addAimTrainerScore(totalTime);
+                    results.setDisable(false);
                     results.setText("Average time per target:\n" + totalTime + " ms");
                 } else {
                     createAimImage();

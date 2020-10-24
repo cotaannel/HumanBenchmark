@@ -81,11 +81,7 @@ public class VisualMemory {
             int finalI = i;
             list.get(i).setOnMouseClicked(e -> handleClick(finalI));
         }
-        if(clear) {
-            addSquares(list);
-        } else {
-            addSquares(list);
-        }
+        addSquares(list);
     }
 
     public void handleClick(int btnIndex) {
