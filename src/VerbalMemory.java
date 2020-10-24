@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class VerbalMemory {
+    private Scores scores;
     private Scene scene;
     private int lives = 3;
     private int score = 0;
@@ -22,6 +23,8 @@ public class VerbalMemory {
     @FXML
     private Label scoreLabel;
     @FXML
+    private Label highScoreLabel;
+    @FXML
     private Button seenButton;
     @FXML
     private Button newButton;
@@ -29,6 +32,9 @@ public class VerbalMemory {
     private Button startButton;
 
     public void startGame() {
+        scores = Main.getScores();
+        int highScore = scores.getVerbalMemoryScore();
+        if(highScore != 0) { highScoreLabel.setText("High Score: " + highScore); }
         seenWords = new ArrayList<>();
         addWordsToBank();
         Collections.shuffle(bank);
@@ -89,7 +95,6 @@ public class VerbalMemory {
                     } else {
                         currentWord = nextWord;
                     }
-                    lastWord = currentWord;
                 } else {
                     //prevents repeats
                     nextWord = bank.get(0);
@@ -98,14 +103,15 @@ public class VerbalMemory {
                     } else {
                         currentWord = nextWord;
                     }
-                    lastWord = currentWord;
                 }
+                lastWord = currentWord;
                 wordLabel.setText(currentWord);
             }
         } else {
             seenButton.setDisable(true);
             newButton.setDisable(true);
             startButton.setDisable(true);
+            scores.addVerbalMemoryScore(score);
             wordLabel.setText("Game over, you got a score of " + score + " words.");
         }
     }

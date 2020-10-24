@@ -9,6 +9,7 @@ import javafx.util.Duration;
 import java.util.Random;
 
 public class NumberMemory {
+    private Scores scores;
     private Scene scene;
     private int number;
     private int level = 0;
@@ -21,6 +22,8 @@ public class NumberMemory {
     @FXML
     private Label numberLabel;
     @FXML
+    private Label highScoreLabel;
+    @FXML
     private Label gameUpdates;
     @FXML
     private Button startButton;
@@ -28,6 +31,11 @@ public class NumberMemory {
     private Button submitButton;
 
     public void startGame() {
+        scores = Main.getScores();
+        gameUpdates.setText("");
+        int highScore = scores.getNumberMemoryScore();
+        if(highScore != 0) { highScoreLabel.setText("High Score: " + highScore); }
+        submitButton.setDisable(false);
         numberInput.setVisible(false);
         Random rand = new Random();
         int n = Integer.parseInt(randomNums);
@@ -54,12 +62,14 @@ public class NumberMemory {
             numberInput.clear();
             numberOfSeconds++;
             level++;
+            submitButton.setDisable(true);
             gameUpdates.setText("Level "+ level +":\n" + "Number: " + number  +
                     "\nYour Answer: " + numberGuess + "\nPress start for next level");
         } else {
             //if gets wrong number, disables start and submit button
             startButton.setDisable(true);
             submitButton.setDisable(true);
+            scores.addNumberMemoryScore(level);
             gameUpdates.setText("Level "+ level +":\n" + "Number: " + number  +
                     "\nYour Answer: " + numberGuess + "\nWrong Number" +
                     "\nRestart game or go back to Home Screen");

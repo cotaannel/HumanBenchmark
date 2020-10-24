@@ -12,11 +12,16 @@ import java.util.Collections;
 import java.util.concurrent.TimeUnit;
 
 public class MatchPairs {
+    private Scores scores;
     private Scene scene;
     @FXML
     private StackPane stackpane;
     @FXML
+    private Button startButton;
+    @FXML
     private Label gameOverLabel;
+    @FXML
+    private Label highScoreLabel;
     private GridPane pane;
     //stores images and its copy
     private ArrayList<Image> imagesCopy = new ArrayList<>();
@@ -36,12 +41,16 @@ public class MatchPairs {
      * the gridpane and then to the stackpane.
      */
     public void startGame() {
+        startButton.setDisable(true);
+        scores = Main.getScores();
+        long highScore = scores.getMatchPairsScore();
+        if(highScore != 0) { highScoreLabel.setText("High Score: " + highScore); }
         startTime = System.nanoTime();
         gameOverLabel.setDisable(true);
         //puts the images in arraylist
         for(int i = 1; i <= 12; i++) {
             Image image =  new Image("Resources/images/"+i+".png",
-                    70,70,false,true);
+                    65,65,false,true);
             //adds image and image copy to arraylist
             imagesCopy.add(image);
             imagesCopy.add(image);
@@ -127,8 +136,9 @@ public class MatchPairs {
             long finishTime = System.nanoTime();
             long reactionTimeNano = finishTime - startTime;
             long secValue = TimeUnit.NANOSECONDS.toSeconds(reactionTimeNano);
+            scores.addMatchPairsScore(secValue);
             gameOverLabel.setDisable(false);
-            gameOverLabel.setText("Game Over\n Time taken to find all the pairs:\n"+secValue+" seconds");
+            gameOverLabel.setText("Game Over! Time taken to find all the pairs: "+secValue+" seconds");
         }
     }
 

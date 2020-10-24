@@ -24,7 +24,7 @@
       <font>
          <Font size="36.0" />
       </font></Label>
-   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="125.0" layoutY="14.0" prefHeight="27.0" prefWidth="355.0" text="If you click too early, the game will be reset.">
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="124.0" layoutY="57.0" prefHeight="27.0" prefWidth="355.0" text="If you click too early, the game will be reset.">
       <font>
          <Font size="18.0" />
       </font>
@@ -37,4 +37,5 @@
       <font>
          <Font size="14.0" />
       </font></Label>
+   <Label fx:id="highScoreLabel" alignment="CENTER" layoutX="184.0" layoutY="22.0" prefHeight="27.0" prefWidth="232.0" textAlignment="CENTER" />
 </Pane>

@@ -15,12 +15,13 @@
             <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#retryGame" text="Retry Game" />
          </children>
       </HBox>
-      <Button layoutX="281.0" layoutY="337.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
-      <StackPane fx:id="stackpane" layoutX="26.0" layoutY="7.0" prefHeight="308.0" prefWidth="580.0" />
-      <Label fx:id="gameOverLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="8.0" prefHeight="324.0" prefWidth="580.0" textAlignment="CENTER">
+      <Button fx:id="startButton" layoutX="281.0" layoutY="337.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
+      <StackPane fx:id="stackpane" layoutX="13.0" layoutY="36.0" prefHeight="308.0" prefWidth="580.0" />
+      <Label fx:id="gameOverLabel" contentDisplay="CENTER" layoutY="5.0" prefHeight="18.0" prefWidth="466.0">
          <font>
-            <Font size="36.0" />
+            <Font size="14.0" />
          </font>
       </Label>
+      <Label fx:id="highScoreLabel" layoutX="466.0" layoutY="6.0" prefHeight="27.0" prefWidth="136.0" />
    </children>
 </AnchorPane>

@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class VisualMemory {
+    private Scores scores;
     private int lives = 3;
     private int level = 1;
     private int misses;
@@ -28,6 +29,8 @@ public class VisualMemory {
     @FXML
     private Label roundUpdate;
     @FXML
+    private Label highScoreLabel;
+    @FXML
     private Button startButton;
     @FXML
     private Pane pane;
@@ -36,6 +39,9 @@ public class VisualMemory {
     private ArrayList<Rectangle> squaresListClear;
 
     public void startGame() {
+        scores = Main.getScores();
+        int highScore = scores.getVisualMemoryScore();
+        if(highScore != 0) { highScoreLabel.setText("High Score: " + highScore); }
         startButton.setDisable(true);
         levelLabel.setText("Level: " + level);
         livesLabel.setText("Lives: " + lives);
@@ -109,6 +115,7 @@ public class VisualMemory {
                 pane.setDisable(true);
                 lives--;
                 if(lives == 0) {
+                    scores.addVisualMemoryScore(level);
                     roundUpdate.setText("Game Over.\nYou got to Level " + level);
                 } else {
                     startButton.setDisable(false);

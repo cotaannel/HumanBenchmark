@@ -11,12 +11,15 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class ReactionTime {
+    private Scores scores;
     private Scene scene;
     private long startTime;
     private LongProperty reactionTimeValue;
     private  long rand;
     @FXML
     private  Label gameUpdate;
+    @FXML
+    private  Label highScoreLabel;
     @FXML
     private Pane root;
     @FXML
@@ -32,7 +35,12 @@ public class ReactionTime {
 
     public ReactionTime() { reactionTimeValue = new SimpleLongProperty(0); }
 
-    public void initialize() { reactionTime.textProperty().bind(reactionTimeValue.asString()); }
+    public void initialize() {
+        scores = Main.getScores();
+        long highScore = scores.getReactionTmeScore();
+        if(highScore != 0) { highScoreLabel.setText("High Score: " + highScore); }
+        reactionTime.textProperty().bind(reactionTimeValue.asString());
+    }
 
     public void startTimer(ActionEvent actionEvent) throws InterruptedException {
         rand = ThreadLocalRandom.current().nextLong(1000, 5000);
@@ -47,6 +55,7 @@ public class ReactionTime {
         long milliValue = TimeUnit.NANOSECONDS.toMillis(reactionTimeNano);
         long startMilliValue = TimeUnit.NANOSECONDS.toMillis(startTime);
         if(reactionTimeNano >= startMilliValue) {
+            scores.addReactionTimeScore(milliValue);
             reactionTimeValue.setValue(milliValue);
         } else {
             gameUpdate.setText("You clicked too early!\n Game will be reset in 5 seconds.");

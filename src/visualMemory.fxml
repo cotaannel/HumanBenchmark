@@ -17,10 +17,11 @@
          </children>
       </HBox>
       <Pane fx:id="pane" layoutX="14.0" layoutY="8.0" prefHeight="270.0" prefWidth="391.0" />
-      <VBox alignment="TOP_CENTER" layoutX="481.0" prefHeight="200.0" prefWidth="119.0">
+      <VBox layoutX="482.0" prefHeight="200.0" prefWidth="118.0">
          <children>
-            <Label fx:id="levelLabel" alignment="CENTER" prefHeight="17.0" prefWidth="103.0" text="Level:" />
-            <Label fx:id="livesLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" text="Lives:" textAlignment="CENTER" />
+            <Label fx:id="highScoreLabel" />
+            <Label fx:id="levelLabel" prefHeight="17.0" prefWidth="103.0" text="Level:" />
+            <Label fx:id="livesLabel" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" text="Lives:" textAlignment="CENTER" />
          </children>
       </VBox>
       <Label fx:id="roundUpdate" alignment="CENTER" layoutX="431.0" layoutY="130.0" prefHeight="228.0" prefWidth="168.0" textAlignment="CENTER" />

@@ -12,11 +12,14 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ChimpTest {
+    private Scores scores;
     private Scene scene;
     @FXML
     private Pane pane;
     @FXML
     private Label updateLabel;
+    @FXML
+    private Label highScoreLabel;
     @FXML
     private Button continueButton;
     @FXML
@@ -27,6 +30,9 @@ public class ChimpTest {
     private ArrayList<StackPane> list;
 
     public void startGame() {
+        scores = Main.getScores();
+        int highScore = scores.getChimpTestScore();
+        if(highScore != 0) { highScoreLabel.setText("High Score: " + highScore); }
         startButton.setDisable(true);
         continueButton.setDisable(true);
         updateLabel.setText("");
@@ -95,6 +101,7 @@ public class ChimpTest {
         updateLabel.setDisable(false);
         pane.getChildren().clear();
         if(strikes == 3) {
+            scores.addChimpTestScore(numberOfSquares);
             updateLabel.setText("Game Over.\nScore:\n" + numberOfSquares);
         } else {
             continueButton.setDisable(false);
