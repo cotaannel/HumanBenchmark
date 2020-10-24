@@ -14,25 +14,25 @@ import java.util.concurrent.TimeUnit;
 public class MatchPairs {
     private Scores scores;
     private Scene scene;
-    @FXML
-    private StackPane stackpane;
-    @FXML
-    private Button startButton;
-    @FXML
-    private Label gameOverLabel;
-    @FXML
-    private Label highScoreLabel;
-    private GridPane pane;
     //stores images and its copy
     private ArrayList<Image> imagesCopy = new ArrayList<>();
     //stores buttons with the images
     private ArrayList<Button> buttons = new ArrayList<>();
     private boolean firstClick = true;
-    private Button clickedButton;
     private int clickedButtonIndex;
     //is used to keep track of when the game is over
     private int gameOver = 0;
     private long startTime;
+    private GridPane pane;
+    @FXML
+    private StackPane stackpane;
+    @FXML
+    private Label gameOverLabel;
+    @FXML
+    private Label highScoreLabel;
+    @FXML
+    private Button startButton;
+    private Button clickedButton;
 
     /**
      * In this method, time start time is set.
@@ -144,7 +144,7 @@ public class MatchPairs {
 
     /**
      * When the retry button is clicked, it calls this
-     * method that reloads the fxml file.
+     * method that reloads the game's fxml file.
      */
     public void retryGame() {
         Pane newRoot = Loader.loadFxmlFile("matchPairs.fxml");
@@ -154,7 +154,7 @@ public class MatchPairs {
 
     /**
      * When the go back to home screen button is clicked, this
-     * method reloads the home screen with the fxml file.
+     * method reloads the home screen with its fxml file.
      */
     public void goBackHome() {
         Pane newRoot = Loader.loadFxmlFile("home.fxml");

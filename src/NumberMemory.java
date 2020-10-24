@@ -76,13 +76,20 @@ public class NumberMemory {
         }
     }
 
+    /**
+     * When the retry button is clicked, it calls this
+     * method that reloads the game's fxml file.
+     */
     public void retryGame() {
         Pane newRoot = Loader.loadFxmlFile("numberMemory.fxml");
         scene = Main.getScene();
         scene.setRoot(newRoot);
     }
 
-
+    /**
+     * When the go back to home screen button is clicked, this
+     * method reloads the home screen with its fxml file.
+     */
     public void goBackHome() {
         Pane newRoot = Loader.loadFxmlFile("home.fxml");
         scene = Main.getScene();

@@ -137,6 +137,10 @@ public class Scores {
         }
     }
 
+    /**
+     * When the go back to home screen button is clicked, this
+     * method reloads the home screen with its fxml file.
+     */
     public void goBackHome() {
         Pane newRoot = Loader.loadFxmlFile("home.fxml");
         scene = Main.getScene();

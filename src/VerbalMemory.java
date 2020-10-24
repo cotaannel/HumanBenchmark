@@ -116,7 +116,9 @@ public class VerbalMemory {
         }
     }
 
-    //creates bank of 101 words
+    /**
+     * Adds 101 different words to the bank list.
+     */
     public void addWordsToBank(){
         bank.add("agreement");
         bank.add("volcanoes");
@@ -221,12 +223,20 @@ public class VerbalMemory {
         bank.add("boulevards");
     }
 
+    /**
+     * When the retry button is clicked, it calls this
+     * method that reloads the game's fxml file.
+     */
     public void retryGame() {
         Pane newRoot = Loader.loadFxmlFile("verbalMemory.fxml");
         scene = Main.getScene();
         scene.setRoot(newRoot);
     }
 
+    /**
+     * When the go back to home screen button is clicked, this
+     * method reloads the home screen with its fxml file.
+     */
     public void goBackHome() {
         Pane newRoot = Loader.loadFxmlFile("home.fxml");
         scene = Main.getScene();

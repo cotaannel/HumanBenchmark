@@ -32,7 +32,6 @@ public class AimTrainer {
         scores = Main.getScores();
         long highScore = scores.getAimTrainerHighScore();
         if(highScore != 0) { highScoreLabel.setText("High Score: " + highScore); }
-        //highScoreLabel.setText("High Score: " + highScore);
         startTime = System.nanoTime();
         startButton.setDisable(true);
         results.setText("");
@@ -43,7 +42,8 @@ public class AimTrainer {
     public void createAimImage() {
         remainingLabel.setText("Remaining: " + remaining);
         pane.getChildren().clear();
-        image = new ImageView(new Image("aim.png", 50, 50, true,true));
+        image = new ImageView(new Image("aim.png", 50, 50,
+                true,true));
         image.setPickOnBounds(true);
 
         Random random = new Random();
@@ -74,12 +74,20 @@ public class AimTrainer {
         });
     }
 
+    /**
+     * When the retry button is clicked, it calls this
+     * method that reloads the game's fxml file.
+     */
     public void retryGame() {
         Pane newRoot = Loader.loadFxmlFile("aimTrainer.fxml");
         scene = Main.getScene();
         scene.setRoot(newRoot);
     }
 
+    /**
+     * When the go back to home screen button is clicked, this
+     * method reloads the home screen with its fxml file.
+     */
     public void goBackHome() {
         Pane newRoot = Loader.loadFxmlFile("home.fxml");
         scene = Main.getScene();

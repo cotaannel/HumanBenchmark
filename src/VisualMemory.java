@@ -13,6 +13,7 @@ import java.util.Collections;
 
 public class VisualMemory {
     private Scores scores;
+    private Scene scene;
     private int lives = 3;
     private int level = 1;
     private int misses;
@@ -20,8 +21,9 @@ public class VisualMemory {
     private int colorSquaresFound;
     private int numOfSquares;
     private int numOfColorSquares = 3;
-    private Scene scene;
     private int changeRound = 1;
+    private ArrayList<Rectangle> squaresList;
+    private ArrayList<Rectangle> squaresListClear;
     @FXML
     private Label livesLabel;
     @FXML
@@ -35,8 +37,6 @@ public class VisualMemory {
     @FXML
     private Pane pane;
     private GridPane grid;
-    private ArrayList<Rectangle> squaresList;
-    private ArrayList<Rectangle> squaresListClear;
 
     public void startGame() {
         scores = Main.getScores();
@@ -149,12 +149,20 @@ public class VisualMemory {
         pane.getChildren().addAll(grid);
     }
 
+    /**
+     * When the retry button is clicked, it calls this
+     * method that reloads the game's fxml file.
+     */
     public void retryGame() {
         Pane newRoot = Loader.loadFxmlFile("visualMemory.fxml");
         scene = Main.getScene();
         scene.setRoot(newRoot);
     }
 
+    /**
+     * When the go back to home screen button is clicked, this
+     * method reloads the home screen with its fxml file.
+     */
     public void goBackHome() {
         Pane newRoot = Loader.loadFxmlFile("home.fxml");
         scene = Main.getScene();
