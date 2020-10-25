@@ -36,7 +36,9 @@ public class ReactionTime {
     public ReactionTime() { reactionTimeValue = new SimpleLongProperty(0); }
 
     public void initialize() {
+        //gets scores from Main
         scores = Main.getScores();
+        //if there is a high score for this game, updates high score label
         long highScore = scores.getReactionTmeScore();
         if(highScore != 0) { highScoreLabel.setText("High Score: " + highScore); }
         reactionTime.textProperty().bind(reactionTimeValue.asString());

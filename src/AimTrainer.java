@@ -29,7 +29,9 @@ public class AimTrainer {
 
     @FXML
     private void startGame() {
+        //gets scores from Main
         scores = Main.getScores();
+        //if there is a high score for this game, updates high score label
         long highScore = scores.getAimTrainerHighScore();
         if(highScore != 0) { highScoreLabel.setText("High Score: " + highScore); }
         startTime = System.nanoTime();

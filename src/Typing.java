@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import java.util.Random;
 
 public class Typing {
+    private Scores scores;
     private Scene scene;
     @FXML
     private TextArea prompt;
@@ -37,6 +38,9 @@ public class Typing {
             "it a character of its own.";
 
     public void startGame() {
+        //gets scores from Main
+        scores = Main.getScores();
+        //if there is a high score for this game, updates high score label
         createPrompt();
     }
 
