@@ -1,3 +1,15 @@
+/**
+ * @author Annel Cota
+ *
+ * In this Match Pairs class game, there are 12 different images
+ * used to create pairs of images. The goal is for the player
+ * to find all of the pairs of images. The images are placed on a grid,
+ * without showing the image to the player until the user clicks on them.
+ * Once clicked, it keeps showing the image until the player clicks on a new
+ * one. They keep clicking and trying to find all of the pairs in the fastest
+ * time that they can.
+ */
+
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -138,6 +150,7 @@ public class MatchPairs {
             long finishTime = System.nanoTime();
             long reactionTimeNano = finishTime - startTime;
             long secValue = TimeUnit.NANOSECONDS.toSeconds(reactionTimeNano);
+            //adds the score to the scores class
             scores.addMatchPairsScore(secValue);
             gameOverLabel.setDisable(false);
             gameOverLabel.setText("Game Over! Time taken to find all the pairs: "+secValue+" seconds");
