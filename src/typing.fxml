@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.text.TextFlow?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Typing">
    <children>
@@ -14,9 +14,11 @@
             <Button mnemonicParsing="false" onAction="#retryGame" text="Retry Game" />
          </children>
       </HBox>
-      <TextArea fx:id="prompt" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="129.0" prefWidth="572.0" wrapText="true" />
-      <Button layoutX="283.0" layoutY="330.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
-      <TextArea fx:id="userInput" layoutX="14.0" layoutY="157.0" prefHeight="19.0" prefWidth="572.0" promptText="Type here..." wrapText="true" />
-      <TextFlow layoutX="14.0" layoutY="209.0" prefHeight="86.0" prefWidth="572.0" />
+      <TextArea fx:id="prompt" editable="false" layoutX="14.0" layoutY="45.0" prefHeight="129.0" prefWidth="572.0" wrapText="true" />
+      <Button layoutX="244.0" layoutY="330.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
+      <TextArea fx:id="userInput" disable="true" layoutX="14.0" layoutY="186.0" onKeyTyped="#checkMatch" prefHeight="129.0" prefWidth="572.0" promptText="Type here..." wrapText="true" />
+      <Button layoutX="309.0" layoutY="330.0" mnemonicParsing="false" onAction="#finishTyping" text="Finish" />
+      <Label fx:id="highScoreLabel" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="155.0" />
+      <Label fx:id="wpmLabel" layoutX="378.0" layoutY="7.0" prefHeight="34.0" prefWidth="206.0" />
    </children>
 </AnchorPane>
