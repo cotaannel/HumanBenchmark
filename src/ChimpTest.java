@@ -1,16 +1,27 @@
+/**
+ * @author Annel Cota
+ *
+ * In this Chimp Test game class, there are
+ * squares created with numbers in ascending order that
+ * the user has to click on in that order. As each square is
+ * clicked, it disapears. For the first round, all numbers are
+ * visible to the user as each square is clicked. After the first
+ * round, after the #1 square is clicked, all the squares turn black.
+ * The number of squares increase after each round. If the user clicks
+ * incorrectly, they get a strike. After strike 3, game over.
+ */
+
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 public class ChimpTest {
@@ -19,9 +30,9 @@ public class ChimpTest {
     @FXML
     private Pane pane;
     @FXML
-    private Label updateLabel;
-    @FXML
     private Label highScoreLabel;
+    @FXML
+    private Label updateLabel;
     @FXML
     private Button continueButton;
     @FXML
@@ -30,10 +41,13 @@ public class ChimpTest {
     private int numberOfSquares = 4;
     private int num = 0;
     private ArrayList<StackPane> list;
-    private ArrayList<StackPane> listCopy;
-    private GridPane grid;
 
-
+    /**
+     * When the start button is clicked, this method is called.
+     * It starts the game and creates the number of squares that
+     * are required. If the game has a high score, it updates the
+     * label.
+     */
     public void startGame() {
         //gets scores from Main
         scores = Main.getScores();
@@ -45,111 +59,98 @@ public class ChimpTest {
         updateLabel.setText("");
         updateLabel.setDisable(true);
         list = new ArrayList<>();
-        listCopy = new ArrayList<>();
         num = 0;
-        grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-        setupSquares();
+        //creates squares depending on the number of squares required
+        for(int i = 1; i <= numberOfSquares; i++) {
+            createSquare(i);
+        }
     }
 
-    public void setupSquares() {
-        int totalSquares = 98;
-        for(int i = 0; i < numberOfSquares; i++) {
-            list.add(new StackPane());
-            String s = Integer.toString(i+1);
-            //Label label = new Label(s);
-            Rectangle rec = new Rectangle(1, 1, 30, 30);
-            rec.setStroke(Color.BLACK);
-            rec.setFill(Color.WHITE);
-            list.get(i).getChildren().addAll(rec, new Label(s));
-        }
-        for(int i = numberOfSquares; i < totalSquares; i++) {
-            list.add(new StackPane());
-            Rectangle rec = new Rectangle(1, 1, 30, 30);
-            rec.setFill(Color.TRANSPARENT);
-            list.get(i).getChildren().addAll(rec);
-        }
-        //listCopy = list;
-        for(int i = 0; i < totalSquares; i++) {
-            int finalI = i;
-            list.get(i).setOnMouseClicked(e -> handleClick(finalI));
-        }
-        listCopy = list;
-        Collections.shuffle(list);
-        addSquares(list);
-    }
+    /**
+     * Creates a square with a number label. It is added
+     * to a stackpane and then added to the pane in a random
+     * location. It adds mouse clicked events to each square
+     * created.
+     * @param i : number of square that is used for label
+     */
+    public void createSquare(int i) {
+        StackPane stackPane = new StackPane();
+        String s = Integer.toString(i);
+        Label label = new Label(s);
+        Random random = new Random();
+        int ranX = random.nextInt((int) (pane.getWidth()-1));
+        int ranY = random.nextInt((int) (pane.getHeight()-1));
+        Rectangle rec = new Rectangle(1, 1, 40, 40);
+        rec.setStroke(Color.BLACK);
+        rec.setFill(Color.WHITE);
+        stackPane.getChildren().addAll(rec, label);
+        stackPane.setLayoutX(ranX);
+        stackPane.setLayoutY(ranY);
+        //adds stackpane to list to compare later
+        list.add(stackPane);
+        pane.getChildren().add(stackPane);
 
-    public void addSquares(ArrayList<StackPane> list) {
-        pane.getChildren().clear();
-        grid.getChildren().clear();
-        int i = 0;
-        int col = 0;
-        int row = 0;
-        //adds the squares to gridpane
-        while(i < list.size()) {
-            grid.add(list.get(i), col, row);
-            col++;
-            if (col == 14) {
-                col = 0;
-                row++;
-            }
-            i++;
-        }
-        pane.getChildren().addAll(grid);
-    }
-
-    public void handleClick(int finalI) {
-        //if stackpane clicks = first on list (which is # 1)
-        StackPane stack = list.get(finalI);
-        System.out.println(stack);
-        System.out.println(list.get(num));
-        if(stack == list.get(num)) {
-            stack.getChildren().clear();
-            //only makes the squares be filled(no number) if
-            //round is passed # of 4 squares round
-            if(numberOfSquares != 4) {
-                //covers up number after first # 1 is clicked
-                if(num == 0) {
-                    grid.getChildren().clear();
-                    ArrayList<StackPane> newList = new ArrayList<>();
-                    StackPane sp;
-                    for(int i = 1; i <= numberOfSquares-1; i++) {
-                        sp = list.get(i);
-                        newList.add(sp);
-                        Rectangle rect = new Rectangle(1,1,30,30);
-                        rect.setFill(Color.BLACK);
-                        sp.getChildren().addAll(rect);
-                        addSquares(newList);
+        stackPane.setOnMouseClicked(new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                //if stackpane clicks = first on list (which is # 1)
+                if(stackPane == list.get(num)) {
+                    stackPane.getChildren().clear();
+                    //only makes the squares be filled(no number) if first round passed
+                    if(numberOfSquares != 4) {
+                        //covers up number after first # 1 is clicked
+                        if(num == 0) {
+                            pane.getChildren().clear();
+                            StackPane sp;
+                            //creates the remaining squares again, this time with black fill
+                            for(int i = 1; i <= numberOfSquares-1; i++) {
+                                sp = list.get(i);
+                                Rectangle rect = new Rectangle(1,1,40,40);
+                                rec.setFill(Color.BLACK);
+                                sp.getChildren().addAll(rect);
+                                pane.getChildren().add(sp);
+                            }
+                        }
+                    }
+                    num++;
+                    //once all squares clicked, new round
+                    if(num == numberOfSquares) {
+                        numberOfSquares++;
+                        updateEndOfRound();
+                    }
+                } else {
+                    //if they click wrong square, they get a strike
+                    strikes++;
+                    //once theres 3 strikes, game is over
+                    if(strikes == 3) {
+                        scores.addChimpTestScore(numberOfSquares);
+                        updateLabel.setDisable(false);
+                        pane.getChildren().clear();
+                        updateLabel.setText("Game Over.\nScore:\n" + numberOfSquares);
+                    } else {
+                        updateEndOfRound();
                     }
                 }
             }
-            num++;
-            //once all squares clicked, new round
-            if(num == numberOfSquares) {
-                numberOfSquares++;
-                updateEndOfRound();
-            }
-        } else {
-            strikes++;
-            updateEndOfRound();
-        }
+        });
     }
 
-
+    /**
+     * When the round is over, this method updates the lable
+     * and shows the user their score so far and strikes.
+     */
     public void updateEndOfRound() {
+        continueButton.setDisable(false);
         updateLabel.setDisable(false);
         pane.getChildren().clear();
-        if(strikes == 3) {
-            scores.addChimpTestScore(numberOfSquares);
-            updateLabel.setText("Game Over.\nScore:\n" + numberOfSquares);
-        } else {
-            continueButton.setDisable(false);
-            updateLabel.setText("Numbers:\n" + numberOfSquares + "\nStrikes:\n" + strikes +
-                    " of 3\n Click 'Continue' to keep going");
-        }
+        updateLabel.setText("Numbers:\n" + numberOfSquares + "\nStrikes:\n" + strikes +
+                " of 3\n Click 'Continue' to keep going");
     }
 
+    /**
+     * After round is over and user clicks on continue
+     * button, this method is called.
+     */
     public void continueButtonClicked() {
         startGame();
     }
