@@ -65,7 +65,6 @@ public class Scores {
     public void addAimTrainerScore(long totalTime) {
         aimTrainer.add(totalTime);
     }
-
     public long getAimTrainerHighScore() {
         if(aimTrainer.isEmpty()) {
             return 0;

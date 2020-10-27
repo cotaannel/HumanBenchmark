@@ -1,3 +1,13 @@
+/**
+ * @author Annel Cota
+ *
+ * This Number Memory game class shows a random
+ * number with a certain amount of digits to the player
+ * for only a certain amount of seconds. The player then
+ * has to re-type that number that was shown once it
+ * disappears.
+ */
+
 import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
@@ -30,6 +40,12 @@ public class NumberMemory {
     @FXML
     private Button submitButton;
 
+    /**
+     * When the start button is clicked, a random number between the
+     * specified number of digits is created and shown to user for a
+     * specified amount of time. If there is a high score, the label is
+     * updated.
+     */
     public void startGame() {
         gameUpdates.setText("");
         //gets scores from Main
@@ -40,10 +56,12 @@ public class NumberMemory {
         submitButton.setDisable(false);
         numberInput.setVisible(false);
         Random rand = new Random();
+        //gets a random int between the minNum and randomNum
         int n = Integer.parseInt(randomNums);
         int min = Integer.parseInt(minNum);
         number = rand.nextInt(n + 1 - min) + (min + 1);
         numberLabel.setText(Integer.toString(number));
+        //after specified number of seconds passed, clears the number and open the textfield
         PauseTransition pause1 = new PauseTransition(Duration.seconds(numberOfSeconds));
         PauseTransition pause2 = new PauseTransition(Duration.seconds(numberOfSeconds));
         pause1.setOnFinished(e -> numberLabel.setText(null));
@@ -52,17 +70,30 @@ public class NumberMemory {
         pause2.play();
     }
 
+    /**
+     * Once the submit button is clicked, the users
+     * input is converted to a number.
+     */
     public void getNumberInput() {
         String s = numberInput.getText();
         numberGuess = Integer.parseInt(s);
     }
 
+    /**
+     * This method compares the right number to the users
+     * guess number. If they do not match, game over. If
+     * they do match, it adds a digit to the number and
+     * updates the game label.
+     */
     public void compareNumbers() {
         if(numberGuess == number) {
+            //adds a digit to the string to make sure the correct num of digits used
             randomNums += "9";
             minNum += "9";
             numberInput.clear();
+            //adds a second to show the number to user
             numberOfSeconds++;
+            //level goes up
             level++;
             submitButton.setDisable(true);
             gameUpdates.setText("Level "+ level +":\n" + "Number: " + number  +
@@ -71,7 +102,9 @@ public class NumberMemory {
             //if gets wrong number, disables start and submit button
             startButton.setDisable(true);
             submitButton.setDisable(true);
+            //adds score to scores class
             scores.addNumberMemoryScore(level);
+            //shows user the stats
             gameUpdates.setText("Level "+ level +":\n" + "Number: " + number  +
                     "\nYour Answer: " + numberGuess + "\nWrong Number" +
                     "\nRestart game or go back to Home Screen");

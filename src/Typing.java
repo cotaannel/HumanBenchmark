@@ -1,8 +1,13 @@
+/**
+ * @author Annel Cota
+ *
+ *
+ */
+
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
-
 import java.util.Random;
 
 public class Typing {
@@ -37,6 +42,9 @@ public class Typing {
             "the nature of the case and the exalted station of his client gave " +
             "it a character of its own.";
 
+    /**
+     *
+     */
     public void startGame() {
         //gets scores from Main
         scores = Main.getScores();
@@ -44,6 +52,10 @@ public class Typing {
         createPrompt();
     }
 
+    /**
+     * Updates the text area with one of the three
+     * prompts at random.
+     */
     public void createPrompt() {
         Random rand = new Random();
         int n = rand.nextInt(3) + 1;
