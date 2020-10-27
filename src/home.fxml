@@ -12,7 +12,7 @@
    <Button mnemonicParsing="false" onAction="#aimTrainerClicked" prefHeight="140.0" prefWidth="244.0" text="Aim Trainer" GridPane.columnIndex="1" />
    <Button mnemonicParsing="false" onAction="#chimpTestClicked" prefHeight="144.0" prefWidth="185.0" text="Chimp Test" GridPane.columnIndex="2" />
    <Button mnemonicParsing="false" onAction="#visualMemoryClicked" prefHeight="135.0" prefWidth="192.0" text="Visual Memory" GridPane.rowIndex="1" />
-   <Button mnemonicParsing="false" onAction="#matchPairsClicked" prefHeight="133.0" prefWidth="238.0" text="Match Pairs" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+   <Button mnemonicParsing="false" onAction="#matchPairsClicked" prefHeight="141.0" prefWidth="234.0" text="Match Pairs" GridPane.columnIndex="1" GridPane.rowIndex="2" />
    <Button mnemonicParsing="false" onAction="#typingClicked" prefHeight="135.0" prefWidth="185.0" text="Typing" GridPane.columnIndex="2" GridPane.rowIndex="1" />
    <Button mnemonicParsing="false" onAction="#numberMemoryClicked" prefHeight="139.0" prefWidth="186.0" text="Number Memory" GridPane.rowIndex="2" />
    <Button mnemonicParsing="false" onAction="#verbalMemoryClicked" prefHeight="153.0" prefWidth="193.0" text="Verbal Memory" GridPane.columnIndex="2" GridPane.rowIndex="2" />
@@ -24,7 +24,7 @@
    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="Are you smarter than a&#10;chimpanzee?" textAlignment="CENTER" GridPane.columnIndex="2" />
    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="How many words per minute&#10;can you type?&#10;" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="Keep as many words in short&#10;term memory as possible." textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-   <Button mnemonicParsing="false" onAction="#scoresClicked" prefHeight="132.0" prefWidth="266.0" text="Game Scores" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+   <Button mnemonicParsing="false" onAction="#scoresClicked" prefHeight="149.0" prefWidth="234.0" text="Game Scores" underline="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" disable="true" prefHeight="110.0" prefWidth="234.0" text="Take a look at the scores you have&#10;gotten for each game played so far.&#10;" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
    <columnConstraints>
       <ColumnConstraints maxWidth="212.0" minWidth="142.0" prefWidth="186.0" />

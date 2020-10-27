@@ -17,8 +17,9 @@
       <TextArea fx:id="prompt" editable="false" layoutX="14.0" layoutY="45.0" prefHeight="129.0" prefWidth="572.0" wrapText="true" />
       <Button layoutX="244.0" layoutY="330.0" mnemonicParsing="false" onAction="#startGame" text="Start" />
       <TextArea fx:id="userInput" disable="true" layoutX="14.0" layoutY="186.0" onKeyTyped="#checkMatch" prefHeight="129.0" prefWidth="572.0" promptText="Type here..." wrapText="true" />
-      <Button layoutX="309.0" layoutY="330.0" mnemonicParsing="false" onAction="#finishTyping" text="Finish" />
+      <Button fx:id="finish" disable="true" layoutX="309.0" layoutY="330.0" mnemonicParsing="false" onAction="#finishTyping" text="Finish" />
       <Label fx:id="highScoreLabel" layoutX="14.0" layoutY="14.0" prefHeight="34.0" prefWidth="155.0" />
       <Label fx:id="wpmLabel" layoutX="378.0" layoutY="7.0" prefHeight="34.0" prefWidth="206.0" />
+      <Label layoutX="371.0" layoutY="322.0" prefHeight="34.0" prefWidth="206.0" text="Click Finish when done with prompt!" />
    </children>
 </AnchorPane>

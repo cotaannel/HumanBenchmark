@@ -9,6 +9,7 @@
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Pane;
@@ -30,6 +31,8 @@ public class Typing {
     private Label highScoreLabel;
     @FXML
     private Label wpmLabel;
+    @FXML
+    private Button finish;
     private String currentPrompt;
     private String prompt1 = "Water. Earth. Fire. Air. " +
             "Long ago, the four nations lived together in harmony. " +
@@ -90,17 +93,31 @@ public class Typing {
         wpmLabel.setText("Your speed: " + wpm + " wpm");
     }
 
+    /**
+     * Checks the users input when compared to the current prompt.
+     * If the users input does not match the prompt, the user is
+     * notified and the text is set to red. Once the user is done
+     * with the prompt, the finish button will be enabled so that
+     * the user can finish the game.
+     */
     @FXML
     private void checkMatch() {
         userText = userInput.getText();
-        if(userText.charAt(i) == currentPrompt.charAt(i)) {
-            System.out.println("match");
+        //only enables finish button once the user is done with prompt
+        if(i >= characters) {
+            finish.setDisable(false);
         } else {
-            System.out.println("no match");
+            if(userText.charAt(i) == currentPrompt.charAt(i)) {
+                userInput.setStyle("-fx-text-fill: black; -fx-font-size: 13px;");
+                wpmLabel.setText("");
+                i++;
+            } else {
+                //makes the text in text area red if theres a mistake
+                userInput.setStyle("-fx-text-fill: red; -fx-font-size: 13px;");
+                //lets user know theres a mistake
+                wpmLabel.setText("There is a mistake.");
+            }
         }
-        System.out.println("current prompt: " + currentPrompt.charAt(i));
-        System.out.println("use string " + userText.charAt(i));
-        i++;
     }
 
     /**
@@ -113,15 +130,15 @@ public class Typing {
         if(n == 1) {
             prompt.setText(prompt1);
             currentPrompt = prompt1;
-            characters = 625;
+            characters = 488-1;
         } else if(n == 2) {
             prompt.setText(prompt2);
             currentPrompt = prompt2;
-            characters = 519;
+            characters = 417-1;
         } else {
             prompt.setText(prompt3);
             currentPrompt = prompt3;
-            characters = 605;
+            characters = 486-1;
         }
     }
 

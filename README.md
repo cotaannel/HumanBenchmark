@@ -63,6 +63,9 @@ red. The player can get it wrong 3 times but will lose a life
 after that. The player has 3 lives and then game over after that.
 
 ##Notes:
+* I made the game as close to the website version as possible.
+On the home screen, I added the same descriptions to the game
+buttons that the website has.
 * I was able to save the scores and get the high scores of
 each game for the current game session, but if the application
 is closed and restarted, the scores from the previous session
@@ -72,3 +75,7 @@ and shown in the Scores part of the home screen.
 ##Bugs & Things to Fix:
  * In the Chimp Test game, the squares sometimes overlap,
  but the game still works as it should.
+ * In the Typing game, I was not able to highlight the single
+ mistake, but while there is a mistake, the whole text turns
+ red. The player is also notified on, the top right, that there
+ is a mistake.
