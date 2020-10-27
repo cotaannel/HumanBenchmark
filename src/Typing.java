@@ -97,8 +97,8 @@ public class Typing {
      * Checks the users input when compared to the current prompt.
      * If the users input does not match the prompt, the user is
      * notified and the text is set to red. Once the user is done
-     * with the prompt, the finish button will be enabled so that
-     * the user can finish the game.
+     * with the prompt(and no mistakes), the finish button will be
+     * enabled so that the user can finish the game.
      */
     @FXML
     private void checkMatch() {
@@ -110,6 +110,7 @@ public class Typing {
             if(userText.charAt(i) == currentPrompt.charAt(i)) {
                 userInput.setStyle("-fx-text-fill: black; -fx-font-size: 13px;");
                 wpmLabel.setText("");
+                //only updates i if no mistakes, so user can only finish with no mistakes
                 i++;
             } else {
                 //makes the text in text area red if theres a mistake
