@@ -1,5 +1,3 @@
-NOT DONE
-
 #Human Benchmark
 *Author: Annel Cota*
 
