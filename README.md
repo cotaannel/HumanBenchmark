@@ -1,9 +1,6 @@
 #Human Benchmark
 *Author: Annel Cota*
 
-##Background
-This was a coding project that I created for the class 'CS-351: Design of Large Programs' at UNM.
-
 ##Description
 This is a game full of mini games that tests your reaction time, memory, 
 and overall cognitive ability. Here is an overview of all the
